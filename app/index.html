@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Búðu til og prentaðu skriftaræfingar með lifandi forskoðun.">
+<title>Skrift — skriftarsmiðja</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="./">Skrift<span>skriftarsmiðja</span></a><span class="local-label">Þitt eigið æfingablað</span></header>
+<main>
+<section class="intro"><p class="eyebrow">SKRIFT ER ÆFING</p><h1>Orðin þín.<br>Æfingin þeirra.</h1><p>Skrifaðu texta, stilltu letrið og prentaðu.<br>Æfingablaðið breytist um leið og þú skrifar.</p><span class="intro-sample" aria-hidden="true">Aa Þþ Ææ</span></section>
+<div class="workspace">
+<aside class="panel"><h2>Stillingar</h2>
+<form id="settings">
+<fieldset><legend>Leturgerð</legend><label><input type="radio" name="font" value="krokar" checked> Skriftís Krókar</label><label><input type="radio" name="font" value="tengd"> Skriftís Tengd</label><label><input type="radio" name="font" value="penna"> Skriftís Penna</label></fieldset>
+<fieldset><legend>Leturstærð</legend><label><input type="radio" name="size" value="large" checked> Stórt</label><label><input type="radio" name="size" value="medium"> Miðstærð</label><label><input type="radio" name="size" value="small"> Lítið</label></fieldset>
+<fieldset><legend>Gerð æfingar</legend><label><input type="radio" name="mode" value="model" checked> Forskrift</label><label><input type="radio" name="mode" value="trace"> Sporun <span class="muted">— ljósir stafir</span></label></fieldset>
+<fieldset><legend>Staðsetning texta</legend><label><input type="radio" name="align" value="left" checked> Fyrir rétthenta</label><label><input type="radio" name="align" value="right"> Fyrir örvhenta</label></fieldset>
+<fieldset><legend>Línur á blaði</legend><label><input type="checkbox" name="guides" checked> Hjálparlínur</label><label><input type="checkbox" name="middle" checked> Miðlína</label><p class="hint">Grunnlínan er alltaf sýnileg.</p></fieldset>
+</form>
+</aside>
+<section class="editor-column" aria-label="Texti og forskoðun">
+<div class="panel editor"><div class="section-heading"><label for="text">Textinn á blaðinu</label><span id="save-status" role="status">Vistað í þessum vafra</span></div>
+<textarea id="text" spellcheck="false" placeholder="Skrifaðu hér, til dæmis: Sólin skín í dag."></textarea>
+<div class="helpers" aria-label="Setja inn sniðskipun"><button type="button" data-insert="{br}">↵ Ný lína</button><button type="button" data-insert="{blank}">＋ Auð lína</button><button type="button" data-insert="{page}">▤ Ný síða</button></div>
+<details><summary>Hvernig virka línuskipti?</summary><p>Enter eða <code>{br}</code> byrjar nýja línu. <code>{blank}</code> skilur eftir eina auða æfingalínu. <code>{page}</code> byrjar nýja síðu. Langar línur skiptast sjálfkrafa.</p><p>Til að birta skipun sem venjulegan texta skaltu setja bakstrik á undan henni, til dæmis <code>\{br}</code>.</p></details>
+</div>
+<div class="preview-heading"><div><h2>Forskoðun</h2><p id="page-count" role="status">A4 · 1 síða</p></div><button class="print-button" id="print" type="button">Prenta æfingablað <span aria-hidden="true">↗</span></button></div>
+<p class="print-hint">Við prentun: veldu A4, 100% stærð og slökktu á haus og fæti vafrans.</p>
+<div id="pages" aria-label="Forskoðun æfingablaða" aria-busy="true"></div>
+<p id="render-status" role="status"></p>
+</section>
+</div>
+</main>
+<footer>Góð skrift byrjar á einni línu.<span>Textinn er geymdur í þessum vafra á þessu tæki.</span></footer>
+</body>
+</html>
