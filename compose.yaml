@@ -1,0 +1,13 @@
+services:
+  skrift:
+    image: ghcr.io/oakjwe/skrift:${SKRIFT_TAG:-latest}
+    restart: unless-stopped
+    ports:
+      - "${SKRIFT_BIND_IP:-127.0.0.1}:${SKRIFT_PORT:-8080}:8080"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true

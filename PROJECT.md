@@ -169,3 +169,16 @@ instructions; this file is project context, not blanket infrastructure permissio
    Teacher-entered text lives in browser localStorage, outside the repository;
    retain the same browser and origin (including port) to restore it.
 5. Do not deploy, publish or push without the user's instruction.
+
+
+## Container handoff — 2026-10-20
+
+The current local branch is main with origin git@github.com:oakjwe/skrift.git;
+this supersedes the earlier no-remote/feature-branch snapshot above.
+Added Dockerfile, restricted nginx config, hardened compose.yaml, environment
+example, and GitHub Actions validation/GHCR publishing. See README for deployment,
+registry authentication, private LAN binding, update and rollback instructions.
+User requested preparation for Proxmox; no push or live deployment performed.
+Local application checks pass (19). Docker is unavailable locally, so container
+runtime validation is encoded in CI and remains pending its first successful run.
+Real-browser and print QA are still outstanding. Source references are preserved.

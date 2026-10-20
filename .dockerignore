@@ -1,0 +1,8 @@
+**
+!app/
+!app/**
+!mms/
+!mms/*.woff2
+!deploy/
+!deploy/nginx.conf
+!Dockerfile
